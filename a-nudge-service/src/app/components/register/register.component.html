@@ -1,0 +1,19 @@
+<mat-card>
+    <div class="register-form">
+        <form (submit)="onRegisterSubmit()">
+            <mat-form-field>
+                <input matInput placeholder="Name" [(ngModel)]="name" name="name" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Username" [(ngModel)]="username" name="username" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Password" [(ngModel)]="password" name="password" type="password" autocomplete="off">
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+        </form>
+    </div>
+</mat-card>

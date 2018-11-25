@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <span class="title"><a [routerLink]="['/']">Nudge</a></span>
+    <span class="space"></span>
+    <span>
+        <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
+        <a *ngIf="authService.loggedIn()" mat-button [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
+        <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/login']" routerLinkActive="active">Login</a>
+        <a *ngIf="authService.loggedIn()" mat-button href="#" (click)="onLogoutClick()">Logout</a>
+        <a *ngIf="!authService.loggedIn()" mat-button [routerLink]="['/register']" routerLinkActive="active">Register</a>
+    </span>
+</mat-toolbar>

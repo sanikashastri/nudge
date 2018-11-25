@@ -1,0 +1,25 @@
+<div *ngIf="user">
+    <mat-card>
+        <mat-card-title>Dashboard</mat-card-title>
+        <div class="container">
+            <div class="groups">
+                <button mat-raised-button color="accent" (click)="onNewGroup()">New Group</button>
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let group of groups">
+                        <mat-expansion-panel-header>
+                            {{ group.name }}
+                        </mat-expansion-panel-header>
+                        Admin: {{ group.admin }} <br/>
+                        Members: {{ group.members }}
+                        <mat-action-row>
+                            <button mat-button color="primary" (click)="onEdit()">Edit</button>
+                        </mat-action-row>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+            <div class="facts">
+                <p>Facts</p>
+            </div>
+        </div>
+    </mat-card>
+</div>

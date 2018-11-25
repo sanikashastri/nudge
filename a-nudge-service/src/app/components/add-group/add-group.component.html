@@ -1,0 +1,17 @@
+<div *ngIf="user">
+    <div class="new-group-form">
+        <form (ngSubmit)="onNewGroupSubmit(user.name)">
+            <mat-dialog-content>
+                <mat-form-field>
+                    <input matInput placeholder="Name" [(ngModel)]="name" name="name" autocomplete="off">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Admin" [(ngModel)]="user.name" name="admin" [disabled]="true">
+                </mat-form-field>
+            </mat-dialog-content>
+            <mat-dialog-actions>
+                <button mat-raised-button color="primary" type="submit">Submit</button>
+            </mat-dialog-actions>    
+        </form>
+    </div>
+</div>

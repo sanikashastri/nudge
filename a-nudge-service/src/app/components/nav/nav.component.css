@@ -1,0 +1,16 @@
+.title {
+    padding-right: 2%;
+}
+
+.space {
+    flex: 1 1 auto;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.active {
+    background: rgba(0,0,0,.12);
+}

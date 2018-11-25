@@ -1,0 +1,19 @@
+<div *ngIf="user">
+    <mat-card>
+        <mat-card-title>Profile</mat-card-title>
+        <form (submit)="onUpdateSubmit(user)">
+            <mat-form-field>
+                <input matInput [disabled]="icon === 'lock'" placeholder="Name" [(ngModel)]="user.name" name="name" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [disabled]="icon === 'lock'" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off">
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput [disabled]="icon === 'lock'" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off">
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="icon === 'lock'" type="submit">Save</button>
+        </form>
+        <button mat-raised-button color="accent" [disabled]="icon === 'lock'">Change Password</button>
+        <button mat-icon-button class="lock" (click)="toggleLock()"><mat-icon>{{ icon }}</mat-icon></button>
+    </mat-card>
+</div>

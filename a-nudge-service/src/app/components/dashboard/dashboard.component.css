@@ -1,0 +1,10 @@
+.container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-column-gap: 2%;
+}
+
+.groups button {
+    margin-top: 1%;
+    margin-bottom: 3%;
+}
