@@ -1,10 +1,21 @@
 .container {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 35% 65%;
     grid-column-gap: 2%;
+}
+
+mat-form-field {
+    display: block;
+    margin: 0 auto;
+}
+
+.update-group-form button {
+    display: block;
+    margin: 0 auto;
 }
 
 .groups button {
     margin-top: 1%;
     margin-bottom: 3%;
+    display: inline-block;
 }
