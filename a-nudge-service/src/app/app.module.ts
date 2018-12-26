@@ -14,7 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { AppComponent } from './app.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -65,7 +65,7 @@ const appRoutes: Routes = [
         MatExpansionModule,
         MatGridListModule,
         MatDialogModule,
-        MatCheckboxModule
+        MatChipsModule
     ],
     entryComponents: [AddGroupComponent],
     providers: [ValidateService, AuthService, AuthGuard],
