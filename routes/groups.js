@@ -37,7 +37,7 @@ router.put('/update', (req, res) => {
         admin: req.body.admin,
         members: req.body.members
     });
-    let id = req.params._id;
+    let id = req.body._id;
 
     Group.changeGroup(newGroup, id, (err, group) => {
         if (err) {
