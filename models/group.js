@@ -28,5 +28,5 @@ module.exports.getGroups = function(admin, callback) {
 }
 
 module.exports.changeGroup = function(newGroup, id, callback) {
-    Group.findOneAndUpdate({_id: id}, {$set: {name: newGroup.name, admin: newGroup.admin, members: newGroup.members}}, { upsert: true }, callback);
+    Group.findOneAndUpdate({_id: id}, {$set: {name: newGroup.name, admin: newGroup.admin, members: newGroup.members}}, callback);
 }
