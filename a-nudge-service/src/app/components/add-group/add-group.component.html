@@ -8,6 +8,20 @@
                 <mat-form-field>
                     <input matInput placeholder="Admin" [(ngModel)]="user.name" name="admin" [disabled]="true">
                 </mat-form-field>
+                <mat-form-field>
+                    <mat-chip-list #chipList>
+                        <mat-chip *ngFor="let member of members" [selectable]="selectable"
+                            [removable]="removable" (removed)="removeMember(member)">
+                            {{ member }}
+                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                        </mat-chip>
+                        <input placeholder="Members"
+                            [matChipInputFor]="chipList"
+                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                            [matChipInputAddOnBlur]="addOnBlur"
+                            (matChipInputTokenEnd)="addMember($event)">
+                    </mat-chip-list>
+                </mat-form-field>
             </mat-dialog-content>
             <mat-dialog-actions>
                 <button mat-raised-button color="primary" type="submit">Submit</button>
