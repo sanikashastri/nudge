@@ -9,11 +9,35 @@
                         <mat-expansion-panel-header>
                             {{ group.name }}
                         </mat-expansion-panel-header>
-                        Admin: {{ group.admin }} <br/>
-                        Members: {{ group.members }}
-                        <mat-action-row>
-                            <button mat-button color="primary" (click)="onEdit()">Edit</button>
-                        </mat-action-row>
+                        <div class="update-group-form">
+                            <form (ngSubmit)="onUpdateSubmit(group)">
+                            <mat-dialog-content>
+                                <mat-form-field>
+                                    <input matInput placeholder="Name" [(ngModel)]="group.name" name="name" autocomplete="off">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <input matInput placeholder="Admin" [(ngModel)]="user.name" name="admin" [disabled]="true">
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-chip-list #chipList>
+                                        <mat-chip *ngFor="let member of group.members" [selectable]="selectable"
+                                            [removable]="removable" (removed)="removeMember(group, member)">
+                                            {{ member }}
+                                            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                        </mat-chip>
+                                        <input placeholder="Members"
+                                            [matChipInputFor]="chipList"
+                                            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                            [matChipInputAddOnBlur]="addOnBlur"
+                                            (matChipInputTokenEnd)="addMember($event, group)">
+                                    </mat-chip-list>
+                                </mat-form-field>
+                            </mat-dialog-content>
+                            <mat-dialog-actions>
+                                <button mat-raised-button color="primary" type="submit">Save</button>
+                            </mat-dialog-actions>    
+                        </form>
+                        </div>
                     </mat-expansion-panel>
                 </mat-accordion>
             </div>
