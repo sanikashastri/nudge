@@ -10,7 +10,8 @@ const GroupSchema = mongoose.Schema({
         required: true
     },
     members: {
-        type: Array
+        type: Array,
+        required: true
     }
 });
 
