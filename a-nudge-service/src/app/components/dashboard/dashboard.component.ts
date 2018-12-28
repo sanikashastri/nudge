@@ -56,13 +56,23 @@ export class DashboardComponent implements OnInit {
             return false;
         }
 
-        if ((value || '').trim()) {
-            group["members"].push(value.trim());
+        const member = {
+            email: value
         }
 
-        if (input) {
-            input.value = '';
-        }
+        this.authService.authenticateMember(member).subscribe(data => {
+            if (!data.success) {
+                this.snackBar.open('User does not exist', '', {duration: 3000});
+            } else {
+                if ((value || '').trim()) {
+                    group["members"].push(value.trim());
+                }
+        
+                if (input) {
+                    input.value = '';
+                }
+            }
+        });
     }
 
     removeMember(group, member): void {
