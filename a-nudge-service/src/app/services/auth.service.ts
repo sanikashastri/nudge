@@ -54,6 +54,12 @@ export class AuthService {
         return this.http.put('http://localhost:3000/groups/update', group, {headers: headers}).map(res => res.json());
     }
 
+    authenticateMember(member) {
+        let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/groups/authenticate', member, {headers: headers}).map(res => res.json());
+    }
+
     storeUserData(token, user) {
         localStorage.setItem('token', token);
         localStorage.setItem('user', JSON.stringify(user));
