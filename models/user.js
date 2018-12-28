@@ -53,6 +53,13 @@ module.exports.getUser = function(username, callback) {
     User.findOne(query, callback);
 }
 
+module.exports.getUserByEmail = function(email, callback) {
+    const query = {
+        email: email
+    }
+    User.findOne(query, callback);
+}
+
 module.exports.changeUser = function(newUser, id, callback) {
     User.findOneAndUpdate({_id: id}, {$set: {name: newUser.name, email: newUser.email, username: newUser.username}}, callback);
 }
