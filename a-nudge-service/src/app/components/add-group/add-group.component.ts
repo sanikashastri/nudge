@@ -48,13 +48,23 @@ export class AddGroupComponent implements OnInit {
             return false;
         }
 
-        if ((value || '').trim()) {
-            this.members.push(value.trim());
+        const member = {
+            email: value
         }
 
-        if (input) {
-            input.value = '';
-        }
+        this.authService.authenticateMember(member).subscribe(data => {
+            if (!data.success) {
+                this.snackBar.open('User does not exist', '', {duration: 3000});
+            } else {
+                if ((value || '').trim()) {
+                    this.members.push(value.trim());
+                }
+        
+                if (input) {
+                    input.value = '';
+                }
+            }
+        });
     }
 
     removeMember(member): void {
